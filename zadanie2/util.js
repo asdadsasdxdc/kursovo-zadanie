@@ -4,7 +4,7 @@ export function formatDate(dateString) {
     const parsed = moment(new Date(dateString));
 
     if(!parsed.isValid()) { //parse.isValid()==false
-        //ако датата е невалидна, трябва да върнем сегашната дата и час
+        
         return Date.now();
     }
 
@@ -13,13 +13,13 @@ export function formatDate(dateString) {
 
 export function getCountdownParts(eventDate) {
     const duration = moment.duration(
-        moment(new Date(eventDate)) //дата на събитието
-        .diff( //разлика с
-            new Date() //текуща дата
+        moment(new Date(eventDate)) 
+        .diff( 
+            new Date() 
         )
     );
-    //дата на събитието - текуща дата = разлика
-    //разлика -> {дни, часове, минути, секунди}
+    
+    
     return {
         days: parseInt(duration.as('days')),
         hours: duration.get('hours'),
