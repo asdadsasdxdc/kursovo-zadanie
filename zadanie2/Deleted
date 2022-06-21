@@ -1,0 +1,21 @@
+import React, {Component} from 'react';
+import {Text, View,Button} from 'react-native';
+
+class Deleted extends Component {
+    render() {
+        return (
+            <View>
+                <Text>
+                    The event has been deleted.
+                </Text>
+                <Button title='Go to events'
+                onPress={
+                    () => this.props.navigation.navigate('BusinessTripList')
+                }
+                />
+            </View>
+        )
+    }
+};
+
+export default Deleted
