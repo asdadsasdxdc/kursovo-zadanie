@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { View, Button, StyleSheet } from "react-native";
 import { FlatList } from "react-native";
-import EventCard from "./EventCard";
+import BusinessTripCard from "./BusinessTripCard";
 import moment from "moment";
-import { getEvents } from "./EventService";
+import { getEvents } from "./BusinessTripService";
 
-class EventList extends Component {
+class BusinessTripList extends Component {
   state = {
     events: [],
   };
@@ -30,7 +30,7 @@ class EventList extends Component {
       <View style={styles.listView}>
         <FlatList
           data={this.state.events}
-          renderItem={({ item }) => <EventCard eventItem={item} />}
+          renderItem={({ item }) => <BusinessTripCard eventItem={item} />}
         ></FlatList>
         <Button
           onPress={() => this.props.navigation.navigate("EventForm")}
@@ -41,7 +41,7 @@ class EventList extends Component {
   }
 }
 
-export default EventList;
+export default  BusinessTripList;
 
 const styles = StyleSheet.create({
   listView: {
