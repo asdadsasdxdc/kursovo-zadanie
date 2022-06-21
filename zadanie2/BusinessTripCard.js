@@ -4,7 +4,7 @@ import { formatDate, getCountdownParts } from "./util";
 import { deleteEvent } from "./BusinessTripService";
 import * as RootNavigation from "./RootNavigation";
 
-export default function EventCard({ eventItem }) {
+export default function BusinessTripCard({ eventItem }) {
   const countdown = getCountdownParts(eventItem.date);
 
   return (
@@ -35,7 +35,7 @@ export default function EventCard({ eventItem }) {
       <View style={styles.mt10}>
         <Button
           onPress={() =>
-            RootNavigation.navigate("EventEditForm", {
+            RootNavigation.navigate("BusinessEditForm", {
               id: eventItem._id,
             })
           }
@@ -45,9 +45,8 @@ export default function EventCard({ eventItem }) {
       <View style={styles.mt10}>
         <Button
           onPress={() => {
-            //TODO: use Alert.alert from react native on phone
             deleteEvent(eventItem._id);
-            RootNavigation.navigate("EventDeleted", {});
+            RootNavigation.navigate("Deleted", {});
           }}
           title="Delete event"
         />
@@ -90,7 +89,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: "5%", //padding отляво и отдясно
+    paddingHorizontal: "5%", 
     marginTop: 30,
   },
   counter: {
