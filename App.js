@@ -8,14 +8,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { navigationRef, isReadyRef } from './RootNavigation';
 const Stack = createStackNavigator();
-
 export default function App() {
   React.useEffect(() => {
     return () => {
       isReadyRef.current = false
     };
   }, []);
-
   return (
     <NavigationContainer
       ref={navigationRef}
@@ -24,13 +22,12 @@ export default function App() {
       }}
     >
       <Stack.Navigator initialRouteName='EventList'>
-      <Stack.Screen name='EventList' component={EventList} options={{title: 'Events'}} />
-      <Stack.Screen name='EventForm' component={EventForm} options={{title: 'Add Event'}} />
-      <Stack.Screen name='EventEditForm' component={EventEditForm} options={{title: 'Edit Event'}} />
-      <Stack.Screen name='ThankYou' component={ThankYou} options={{title: 'Thank You'}} />
-      <Stack.Screen name='EventDeleted' component={EventDeleted} options={{title: 'Delete'}} />
+      <Stack.Screen name='EventList' component={EventList} options={{title: 'Командировки'}} />
+      <Stack.Screen name='EventForm' component={EventForm} options={{title: 'Добавяне на командировка'}} />
+      <Stack.Screen name='EventEditForm' component={EventEditForm} options={{title: 'Редактиране на командировка'}} />
+      <Stack.Screen name='ThankYou' component={ThankYou} options={{title: 'Благодаря'}} />
+      <Stack.Screen name='EventDeleted' component={EventDeleted} options={{title: 'Изтрито'}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-

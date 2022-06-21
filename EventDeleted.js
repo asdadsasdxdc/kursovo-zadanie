@@ -6,9 +6,9 @@ class EventDeleted extends Component {
         return (
             <View>
                 <Text>
-                    The event has been deleted.
+                    Командировката беше изтрита.
                 </Text>
-                <Button title='Go to events'
+                <Button title='Връщане към командировките'
                 onPress={
                     () => this.props.navigation.navigate('EventList')
                 }

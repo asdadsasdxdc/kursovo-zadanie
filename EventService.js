@@ -42,7 +42,7 @@ export function getEventById(id) {
 }
 
 
-export function addEvent({title, date, description}) {
+export function addEvent({names, destination, duration, dates, buget, date, description}) {
     return fetch(BASE_URL,
         {
             method: 'POST',
@@ -51,14 +51,14 @@ export function addEvent({title, date, description}) {
                 'x-apikey': API_KEY
             },
             body: JSON.stringify({
-                title, date, description, id: uuid()
+                names, destination, duration, dates, buget, date, description, id: uuid()
             })
         })
         .then(result => result.json())
         .catch(error => console.error(error));
 }
 
-export function editEvent({id, title, date, description}) {
+export function editEvent({id, names, destination, duration, dates, buget, date, description}) {
     return fetch(`${BASE_URL}/${id}`,
         {
             method: 'PUT',
@@ -67,7 +67,7 @@ export function editEvent({id, title, date, description}) {
                 'x-apikey': API_KEY
             },
             body: JSON.stringify({
-                title, date, description
+                names, destination, duration, dates, buget, date, description
             })
         })
         .then(result => result.json())

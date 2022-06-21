@@ -6,9 +6,9 @@ class ThankYou extends Component {
         return (
             <View>
                 <Text>
-                    Thank you for adding your event
+                    Ти качи командировка!
                 </Text>
-                <Button title='Go to events'
+                <Button title='Връщане към командировките'
                 onPress={
                     () => this.props.navigation.navigate('EventList')
                 }

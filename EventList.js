@@ -22,7 +22,7 @@ class EventList extends Component {
           updateTime: Date.now()
         }))
       });
-    }, 1000); //1 секунди = 1000 милисекунди
+    }, 1000);
   }
 
   render() {
@@ -34,7 +34,7 @@ class EventList extends Component {
         ></FlatList>
         <Button
           onPress={() => this.props.navigation.navigate("EventForm")}
-          title="Add event"
+          title="Добави командировка"
         />
       </View>
     );
