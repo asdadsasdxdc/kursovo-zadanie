@@ -1,8 +1,8 @@
 import moment from 'moment';
 import uuid from 'uuid';
 
-const BASE_URL = 'https://myevents-4187.restdb.io/rest/events';
-const API_KEY = '60752db428bf9b609975a160';
+const BASE_URL = 'https://test1-7106.restdb.io/rest/tree';
+const API_KEY = '62b1d019049b6811f7da3cd1';
 
 export function getEvents() {
     return fetch(BASE_URL,
