@@ -1,20 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import BusinessTripList from './BusinessTripList';
+import BusinessTripForm from './BusinessTripForm';
+import BusinessEditForm from './EventEditForm';
+import ThankYou from './ThankYou';
+import Deleted from './Deleted';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { navigationRef, isReadyRef } from './RootNavigation';
+const Stack = createStackNavigator();
 
 export default function App() {
+  React.useEffect(() => {
+    return () => {
+      isReadyRef.current = false
+    };
+  }, []);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer
+      ref={navigationRef}
+      onReady={() => {
+       isReadyRef.current = true;
+      }}
+    >
+      <Stack.Navigator initialRouteName='EventList'>
+      <Stack.Screen name='BusinessTripList' component={BusinessTripList} options={{title: 'Events'}} />
+      <Stack.Screen name='BusinessTripForm' component={BusinessTripForm} options={{title: 'Add Event'}} />
+      <Stack.Screen name='BusinessEditForm' component={BusinessEditForm} options={{title: 'Edit Event'}} />
+      <Stack.Screen name='ThankYou' component={ThankYou} options={{title: 'Thank You'}} />
+      <Stack.Screen name='Deleted' component={Deleted} options={{title: 'Delete'}} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
